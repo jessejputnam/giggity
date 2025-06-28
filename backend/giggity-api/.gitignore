@@ -1,8 +1,16 @@
 HELP.md
+notes.md
 target/
 .mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+
+# === OS-Specific ===
+.DS_Store
+.AppleDouble
+.LSOverride
 
 ### STS ###
 .apt_generated
@@ -13,21 +21,39 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+# === Build tools ===
+# Compiled class files
+*.class
+# Log files
+*.log
+# Temporary files
+*.tmp
+*.swp
+
+# === Lombok generated files ===
+generated/
+*.lombok.config
+
+# === Test output ===
+test-output/
+surefire-reports/
+jacoco.exec
+
+# === Misc ===
+*.bak
+*.orig
+*.rej
+*.gz~
+
+# === Environment files (optional) ===
+.env
+.env.*
+
+# === Mac-specific again (just to be sure) ===
+._*
+.Spotlight-V100
+.Trashes
