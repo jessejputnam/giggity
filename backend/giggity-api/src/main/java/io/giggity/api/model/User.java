@@ -6,25 +6,18 @@ import lombok.Data;
 import org.springframework.lang.NonNull;
 
 import java.time.Instant;
-import java.util.List;
 
-@Document(collection = "songs")
+@Document(collection = "users")
 @Data
-public class Song {
+public class User {
     @Id
     private String id;
     @NonNull
-    private String userId;
+    private String email;
     @NonNull
-    private String title;
+    private String displayName;
     @NonNull
-    private String artist;
-    private String keySignature;
-    private Integer capoFret;
-    private String genre;
-    private List<LyricSection> lyrics;
-    private String[] tags;
-    private String[] notes;
+    private String password;
     @NonNull
     private String status;
     @NonNull
