@@ -1,9 +1,12 @@
 package io.giggity.api.model;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
-import org.springframework.lang.NonNull;
+
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.Instant;
 
@@ -12,26 +15,16 @@ import java.time.Instant;
 public class User {
     @Id
     private String id;
-    @NonNull
+    @NotBlank
     private String email;
-    @NonNull
+    @NotBlank
     private String displayName;
-    @NonNull
+    @NotBlank
     private String password;
-    @NonNull
-    private String status;
-    @NonNull
+    @NotBlank
+    private String status = "Active";
+    @CreatedDate
     private Instant createdAt;
-    @NonNull
+    @LastModifiedDate
     private Instant updatedAt;
-
-    /**
-     * A lyric section (verse, chorus, bridge, etc.).
-     */
-    @Data
-    public static class LyricSection {
-        private int order;
-        private String type;
-        private String text;
-    }
 }

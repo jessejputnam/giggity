@@ -1,9 +1,15 @@
 package io.giggity.api.model;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
-import org.springframework.lang.NonNull;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.Instant;
 import java.util.List;
@@ -13,32 +19,33 @@ import java.util.List;
 public class Song {
     @Id
     private String id;
-    @NonNull
+    @NotBlank
     private String userId;
-    @NonNull
+    @NotBlank
     private String title;
-    @NonNull
+    @NotBlank
     private String artist;
     private String keySignature;
     private Integer capoFret;
     private String genre;
+    @Valid
     private List<LyricSection> lyrics;
     private String[] tags;
     private String[] notes;
-    @NonNull
-    private String status;
-    @NonNull
+    @NotBlank
+    private String status = "Active";
+    @CreatedDate
     private Instant createdAt;
-    @NonNull
+    @LastModifiedDate
     private Instant updatedAt;
 
-    /**
-     * A lyric section (verse, chorus, bridge, etc.).
-     */
     @Data
     public static class LyricSection {
+        @Min(0)
         private int order;
+        @NotBlank
         private String type;
+        @NotBlank
         private String text;
     }
 }
