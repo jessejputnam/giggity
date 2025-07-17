@@ -19,7 +19,7 @@ import java.util.List;
 public class Song {
     @Id
     private String id;
-    @NotBlank
+    // @NotBlank // TODO re-add when implementing DTO
     private String userId;
     @NotBlank
     private String title;
